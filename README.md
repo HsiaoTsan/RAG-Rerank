@@ -1,6 +1,6 @@
   
 Code Architecture:
-
+```
 ├── config/               # Configuration files
 │   ├── settings.yaml     # Hyperparameters, paths, etc.
 ├── data/                 # Raw and processed data
@@ -16,3 +16,4 @@ Code Architecture:
 │   ├── evaluation/       # Metrics and testing
 │   └── api/              # REST/gRPC endpoints
 └── main.py               # Entry point for the pipeline
+```
