@@ -1,6 +1,4 @@
-This repository contains the code and dataset for the **Question Answering (QA) system**. The system leverages a Retrieval-Augmented Generation (RAG) and Reranking framework paired with LLMs to generate answers to medical queries, tailoring responses based on the level of risk associated with each query. It is designed to be relevant for both research and real-world applications.
-
-
+ 
 Code Architecture:
 
 ├── config/               # Configuration files
