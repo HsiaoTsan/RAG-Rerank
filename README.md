@@ -2,7 +2,6 @@ This repository contains the code and dataset for the **Question Answering (QA) 
 
 Code Architecture:
 
-
 ├── config/               # Configuration files
 │   ├── settings.yaml     # Hyperparameters, paths, etc.
 ├── data/                 # Raw and processed data
