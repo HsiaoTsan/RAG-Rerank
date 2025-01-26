@@ -1,4 +1,12 @@
-  
+# Introduction
+This repository contains the code for the QA system based on RAG and Reranking for the on-premise deployment of a QA system for the user manual of a traffic simulator named Aimsun. 
+
+# News
+- 2025-01-25: Proof of Concept (PoC) for the on-premise deployment of a QA system based on RAG on a minimal text data.
+
+# Usage
+Coming soon!
+
 Code Architecture:
 ```
 ├── config/               # Configuration files
