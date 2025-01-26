@@ -1,5 +1,6 @@
-import os
-from config import llm_config
+import sys
+import argparse
+from config.llm_config import llm_config
 from src.ingestion.doc_loader import load_documents
 from src.ingestion.chunking import chunk_document
 from src.ingestion.db_handler import VectorDB
@@ -30,5 +31,16 @@ def main(query: str, llm: str = 'DeepSeek'):
 
 
 if __name__ == "__main__":
-    query = "How to generate text with REST API?"
-    print(main(query))
+    parser = argparse.ArgumentParser(
+        prog='RAG+Rerank',
+        description='Retrieve and generate answers using RAG+Rerank based on LLM',
+        )
+
+    parser.add_argument("--query", type=str, required=True)
+    parser.add_argument("--llm", type=str, default="DeepSeek")
+    args = parser.parse_args()
+
+    query = args.query
+    llm = args.llm
+
+    print(main(query, llm))

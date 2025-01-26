@@ -1,3 +1,4 @@
+import os
 llm_config = {
     'ChatGPT': {
         'api_key': os.environ.get('OPENAI_API_KEY'),
