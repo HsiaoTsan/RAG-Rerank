@@ -11,9 +11,16 @@ LLM backbone can be either ChatGPT or DeepSeek:
 
 Example usage:
 
-```python main.py --query "What is the usage of REST API?" --llm ChatGPT```
+```python main.py --query "How to set a traffic light's green time?" --llm ChatGPT```
 
-```python main.py --query "What is the usage of REST API?" --llm DeepSeek```
+```python main.py --query "How to set a traffic light's green time?" --llm DeepSeek```
+
+You will see the output as the following screenshot:
+
+
+
+![Image](example.png)
+
 
 # Code Architecture
 ```
