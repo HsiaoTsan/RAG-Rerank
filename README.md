@@ -2,7 +2,8 @@
 This repository contains the code for the QA system based on RAG and Reranking for the on-premise deployment of a QA system for the user manual of a traffic simulator named Aimsun. 
 
 # News
-- 2025-01-27: Support tracing changes on raw documents. Re-indexing will be performed on all documents if changes happen.
+- 2025-01-27: Support Reranking.
+- 2025-01-26: Support tracing changes on raw documents. Re-indexing will be performed on all documents if changes happen.
 - 2025-01-25: Proof of Concept (PoC) for the on-premise deployment of a QA system based on RAG on a minimal text data.
 
 # Usage
@@ -29,6 +30,7 @@ Example usage:
 |   |   ├── document_manager.py  # Trace whether raw documents are changed 
 │   │   └── embedding.py  # Embedding tool, e.g., ChatGPT embedder or HuggingFace, etc.
 │   ├── retrieval/        # Vector search logic
+|   |   ├── reranker.py   # Reranker
 |   |   └── retriever.py  # Search document chunks similar to the query
 │   ├── generation/       # LLM integration
 |   |   └── generator.py  # Generate answers based on the query and the relevant chunks. LLMs can be either ChatGPT or DeepSeek

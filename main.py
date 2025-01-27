@@ -2,7 +2,7 @@ import argparse
 from config.llm_config import llm_config
 from src.ingestion.db_handler import load_vector_db
 from src.ingestion.embedding import Embedder
-from src.retrieval.retriever import Retriever
+from src.retrieval.retriever import Retriever, Reranker
 from src.generation.generator import AnswerGenerator
 
 
@@ -16,9 +16,10 @@ def main(query: str, llm: str = 'DeepSeek'):
     embedder = Embedder()
 
     # 3. Retrieve and generate
-    retriever = Retriever(vector_db, vector_db.chunks)
+    reranker = Reranker()
+    retriever = Retriever(vector_db, vector_db.chunks, reranker=reranker)
     query_embedding = embedder.embed([query])[0]
-    context = retriever.get_relevant_chunks(query_embedding)
+    context = retriever.get_relevant_chunks(query_embedding, query=query, k=5, rerank_top_k=100)
 
     generator = AnswerGenerator(**llm_config[llm])
     answer = generator.generate(query, context)
