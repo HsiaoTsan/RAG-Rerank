@@ -4,6 +4,7 @@ from src.ingestion.db_handler import load_vector_db
 from src.ingestion.embedding import Embedder
 from src.retrieval.retriever import Retriever, Reranker
 from src.generation.generator import AnswerGenerator
+from termcolor import colored
 
 
 
@@ -39,4 +40,8 @@ if __name__ == "__main__":
     query = args.query
     llm = args.llm
 
-    print(main(query, llm))
+    answer = main(query, llm)
+
+    print(colored(f"Query: {query}", "green", "on_grey"))
+    print(colored(f"Answer:\n {answer}", "blue", "on_grey"))
+
