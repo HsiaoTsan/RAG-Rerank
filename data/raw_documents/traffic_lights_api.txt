@@ -1,0 +1,44 @@
+Direct Change of Phase with Transition
+In C++ and Python
+Explanation
+Changes to idPhase in junction identified by idJunction, calculating automatically the transition from the current phase to idPhase. The transition is calculated using the following method:
+
+if the current phase CP is not an interphase
+    if CP has an interphase I defined as next phase
+        Calculate the transition from CP to idPhase (setting green all signal groups active in both phases)
+        Activate the interphase I with the duration defined (with the signal group states calculated)
+        After the duration of interphase I, activate phase idPhase
+    else
+        Activate directly phase idPhase (without transition)
+    endif
+else
+    Activate directly phase idPhase (without transition)
+endif
+If the events are enabled, Aimsun Next programs the next phase change, taking into account the current duration of each phase. Otherwise the next phase change has to be done by the Aimsun Next API Module. IMPORTANT: this function requires a phase to be active, that means the transition will be calculated incorrectly when the state of signal group has been defined calling the function ECIChangeSignalGroupState, because this call leads to loss of the "current" phase.
+
+Format
+int ECIChangeDirectPhaseWithInterphaseTransition (int idJunction, int idPhase, double timeSta, double time,  double cycle)
+Parameters
+idJunction: A valid junction identifier.
+*idPhase&: A valid phase identifier. This identifier is defined by the interval [1 ... ECIGetNumberPhases (idJunction)]
+timeSta: The time of simulation (current time) in seconds from midnight.
+time: A relative time of simulation in seconds.
+cycle: The duration of each simulation step in seconds.
+Output
+= 0: No error occurred.
+< 0: Error
+Change the Current Duration of Phase
+In C++ and Python
+Explanation
+Changes the duration of idPhase in the junction identified by idJunction in the current control plan. This change only applies when this junction has enabled the events.
+
+Format
+int ECIChangeTimingPhase(int idJunction, int idPhase, double newTime, double timeSta)
+Parameters
+idJunction: A valid junction identifier.
+idPhase: A valid phase identifier. This identifier is defined by the interval [1 ... Total Number of phases] (that is known using the function ECIGetNumberPhases (idJunction))
+newTime: Represents new duration of idPhase, in seconds.
+timeSta: The time of simulation (current time) in seconds from midnight.
+Output
+= 0: No error occurred.
+< 0: Error
